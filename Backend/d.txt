@@ -1,0 +1,47 @@
++-----------------+      +---------------------+      +-----------------+
+|   Load Dataset  |      | Preprocess Features |      |  Train Models   |
+|                 |      |                     |      |                 |
+| housing_data.csv|----->|- Convert location   |----->| - Random Forest |
+|                 |      |   to integer        |      |   Regressor     |
++-----------------+      |-Map real_estate_type|      | - Gradient      |
+                         |   to integer        |      |   Boosting      |
+                         +---------------------+      |   Regressor     |
+                                                      | - Extra Trees   |
+                                                      |   Regressor     |
+                                                      +-----------------+
+                                                                       |
+                                                                       v
+                                                          +-------------------+
+                                                          | Combine Models    |
+                                                          | (Voting Regressor)|
+                                                          +-------------------+
+                                                                       |
+                                                                       v
+                                                          +-------------------+
+                                                          | Save Trained      |
+                                                          | Models            |
+                                                          +-------------------+
+                                                                       |
+                                                                       v
+                                                          +-------------------+
+                                                          | Load Test Dataset |
+                                                          |                   |
+                                                          | - Convert location|
+                                                          |   to integer      |
+                                                          | - Map real_estate_|
+                                                          |   type to integer |
+                                                          +-------------------+
+                                                                       |
+                                                                       v
+                                                          +-------------------+
+                                                          | Evaluate Models   |
+                                                          |                   |
+                                                          | - Calculate R-    |
+                                                          |   squared value   |
+                                                          |   for each model  |
+                                                          | - Calculate mean  |
+                                                          |   R-squared value |
+                                                          | - Calculate       |
+                                                          |   percentage      |
+                                                          |   accuracy        |
+                                                          +-------------------+
